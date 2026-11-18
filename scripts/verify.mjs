@@ -9,12 +9,22 @@ assert.equal(chain.id,61999)
 const deployed = await finalized(deployment.hash)
 assert.equal(outcome(deployed,deployment.hash).execution,'SUCCESS')
 assert.equal(deployed.to_address.toLowerCase(),deployment.address.toLowerCase())
+const failureReasons = []
+const reasonMismatches = []
 for (const item of evidence) {
   const receipt = await finalized(item.hash)
-  assert.deepEqual(outcome(receipt,item.hash),{
-    hash:item.hash,status:item.status,consensus:item.consensus,execution:item.execution,reason:item.reason,
-  })
+  const actual = outcome(receipt,item.hash)
+  assert.deepEqual(
+    {hash:actual.hash,status:actual.status,consensus:actual.consensus,execution:actual.execution},
+    {hash:item.hash,status:item.status,consensus:item.consensus,execution:item.execution},
+  )
   assert.equal(receipt.from_address.toLowerCase(),item.actor)
+  if (item.execution === 'ERROR') {
+    failureReasons.push({method:item.method,index:item.index,hash:item.hash,reason:actual.reason})
+    if (actual.reason !== item.reason) {
+      reasonMismatches.push({method:item.method,hash:item.hash,recorded:item.reason,chain:actual.reason})
+    }
+  }
 }
 const result = JSON.parse(await client.readContract({
   address:deployment.address,functionName:'edition',args:[key],stateStatus:'finalized',
@@ -47,4 +57,11 @@ for(const row of sorted) {
   if(order.length===result.slots) break
 }
 assert.deepEqual(order,result.order)
-console.log(JSON.stringify({key,order:order.map(i=>result.rows[i].title),verifiedReceipts:evidence.length+1},null,2))
+console.log(JSON.stringify({
+  key,
+  order:order.map(i=>result.rows[i].title),
+  verifiedReceipts:evidence.length+1,
+  failureReasons,
+  reasonMismatches,
+},null,2))
+assert.deepEqual(reasonMismatches,[])

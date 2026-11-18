@@ -46,3 +46,4 @@ jobs:
           npm exec vite preview -- --host 127.0.0.1 --port 4173 &
           curl --retry 10 --retry-connrefused --fail --silent http://127.0.0.1:4173/ -o /dev/null
           PLAYWRIGHT_CHROME_CHANNEL=chrome EDITION_URL=http://127.0.0.1:4173/ npm run test:ui
+      - run: npm run verify

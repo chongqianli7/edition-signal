@@ -93,7 +93,7 @@ function renderWallet() {
   renderForm()
 }
 function ticket(title, hash) {
-  return link(title, explorer + '/transactions/' + hash)
+  return link(title, explorer + '/tx/' + hash)
 }
 function drawChart(row, days) {
   const chart = el('div', undefined, 'chart')
