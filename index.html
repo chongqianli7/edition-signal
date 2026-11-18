@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3efdf"><title>Edition Signal — The Planning Desk</title></head>
+<body>
+<header class="mast"><a href="./" class="wordmark">Edition<span>Signal</span></a><a id="explorer" class="network" href="https://explorer-studio.genlayer.com">Stable Studionet ↗</a></header>
+<main>
+<section class="intro">
+<div><p class="kicker">THE EDITORIAL PLANNING DESK</p><h1>What should<br>we cover <i>next?</i></h1><p class="lede">Lock an editorial slate. Compare two weeks of verified Wikipedia readership. Publish a shortlist your team can reproduce.</p><a class="jump" href="#edition=field-notes">Read the field notes edition ↓</a></div>
+<div class="plate" aria-hidden="true"><div class="plate-ring one"></div><div class="plate-ring two"></div><div class="plate-ring three"></div><div class="plate-ring four"></div><span>↗</span></div>
+</section>
+<section class="desk" id="desk">
+<div class="desk-head"><div><p class="kicker">THE NEWSROOM</p><h2 id="heading">Open an edition</h2></div><form id="lookup"><label for="key">Edition key</label><div class="inline"><input id="key" required placeholder="field-notes"><button>Open</button></div></form></div>
+<p id="read-status" role="status"></p>
+<div class="tools"><section class="wallet"><h3>Signing desk</h3><p>Temporary Stable Studionet wallets are held in this tab and cleared on reload. Test GEN only.</p><div id="identity"></div><div class="inline"><button id="wallet" type="button">Create test wallet</button><button id="reset" type="button" hidden>Reset</button></div><p id="feedback" role="status"></p><ul id="receipts"></ul></section>
+<details id="builder"><summary>Start an edition</summary><form id="freeze"><label for="slug">New edition key</label><input id="slug" required placeholder="weekly-field-notes"><div class="inline fields"><label>First UTC date<input id="date" required type="date"></label><label>Story slots<input id="slots" required type="number" value="2" min="1" max="4"></label></div><p class="note">Use a complete historical window and canonical English Wikipedia titles with underscores.</p><div id="fields"></div><button id="add" type="button">Add candidate</button> <button id="lock">Freeze slate</button></form></details></div>
+<div id="board"></div>
+</section></main>
+<footer><a href="https://github.com/chongqianli7/edition-signal">Source &amp; verification ↗</a><span>Wikimedia Analytics · UTC daily data</span></footer>
+<dialog id="confirm"><form method="dialog"><h3>Review transaction</h3><p id="intent"></p><div class="inline"><button value="cancel">Cancel</button><button value="send">Sign and send</button></div></form></dialog>
+<script type="module" src="/app.js"></script></body></html>

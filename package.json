@@ -1,0 +1,21 @@
+{
+  "name": "edition-signal",
+  "version": "1.0.0",
+  "description": "Editorial planning with independently verified Wikimedia readership.",
+  "scripts": {
+    "test": "python3 -m unittest discover -s tests",
+    "build": "vite build --base=./",
+    "dev": "vite",
+    "demo": "node scripts/demo.mjs"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "genlayer-js": "1.1.8",
+    "viem": "2.58.0"
+  },
+  "devDependencies": {
+    "playwright": "1.65.1",
+    "vite": "6.4.6"
+  }
+}
