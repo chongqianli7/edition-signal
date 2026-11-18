@@ -1,3 +1,4 @@
+import {TransactionHashVariant} from 'genlayer-js/types'
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
 import {createAccount} from 'genlayer-js'
@@ -9,7 +10,7 @@ if (!key) throw Error('Specify an unused edition key.')
 const curator = createAccount()
 const slate = [['Ada_Lovelace','Science'],['Mars','Science'],['Aurora','Places'],['Impressionism','Culture'],['Edition_Signal_No_Such_Article_7248','Technology']]
 const entries = []
-const read = async () => JSON.parse(await client.readContract({address,functionName:'edition',args:[key],stateStatus:'finalized'}) || 'null')
+const read = async () => JSON.parse(await client.readContract({address,functionName:'edition',args:[key],transactionHashVariant:TransactionHashVariant.LATEST_FINAL}) || 'null')
 assert.equal(await read(), null)
 async function send(functionName, args, account, expectation, label = functionName) {
   const hash = await client.writeContract({address, functionName, args:[key,...args], account, value:0n})

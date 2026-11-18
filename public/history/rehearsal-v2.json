@@ -1,0 +1,40 @@
+{
+  "address": "0xaA18F59e6734966Cb2F1494fe2BEc791ced53Fa1",
+  "transactions": [
+    {
+      "key": "field-notes-live",
+      "method": "freeze",
+      "index": null,
+      "actor": "0xcba18ae6176267d34290b4ff6fe0662ac1431d48",
+      "hash": "0x75197ce29c8eb12c4dd81f47144e9f04d88a453ea1eb6885c2d642e4cb4200d8",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "reason": null
+    },
+    {
+      "key": "field-notes-live",
+      "method": "unauthorized_publish",
+      "index": null,
+      "actor": "0x05973b0ac099e21736f6e68bbbe142fca7d5580c",
+      "hash": "0xff0d1beb8ea2b2f69873b32d2f9272fc2cfd2550c84647a958ad341055c688af",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "ERROR",
+      "reason": "CURATOR_REQUIRED",
+      "resultType": "rollback"
+    },
+    {
+      "key": "field-notes-live",
+      "method": "early_publish",
+      "index": null,
+      "actor": "0xcba18ae6176267d34290b4ff6fe0662ac1431d48",
+      "hash": "0xece3e1e7ad75bef2892fc4eef91c988964137da74ddc05aa235e70e777fbea83",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "ERROR",
+      "reason": "OBSERVATIONS_PENDING",
+      "resultType": "rollback"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import {TransactionHashVariant} from 'genlayer-js/types'
 import {createAccount} from 'genlayer-js'
 import {formatEther} from 'viem'
 import {client, explorer, finalized, outcome} from './network.js'
@@ -171,7 +172,7 @@ async function open(requested) {
   renderBoard()
   $('read-status').textContent = 'Reading finalized chain state…'
   try {
-    const payload = await client.readContract({address:deployment.address, functionName:'edition', args:[requested], stateStatus:'finalized'})
+    const payload = await client.readContract({address:deployment.address, functionName:'edition', args:[requested], transactionHashVariant:TransactionHashVariant.LATEST_FINAL})
     if (id !== readId) return
     edition = payload ? JSON.parse(payload) : null
     $('read-status').textContent = edition ? '' : 'No edition exists with this key.'
@@ -219,7 +220,7 @@ async function submit(method, args) {
     receipt.textContent = method + ' · ' + result.status + ' / ' + result.execution + ' ↗'
     receipts.push({key:args[0], method, index:args[1], ...result})
     if (result.status !== 'FINALIZED' || result.execution !== 'SUCCESS') {
-      feedback('Operation rejected. ' + (result.reason ?? 'See the receipt for the execution result.'))
+      feedback((result.resultType === 'rollback' ? 'Rule rejected the operation. ' : 'Execution failed. ') + (result.reason ?? 'See the receipt for the execution result.'))
       return
     }
     feedback('Finalized successfully.')

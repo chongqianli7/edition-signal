@@ -2,12 +2,13 @@ import assert from 'node:assert/strict'
 import {readFile} from 'node:fs/promises'
 import {chromium} from 'playwright'
 
+const deployment = JSON.parse(await readFile(new URL('../public/deployment.json',import.meta.url),'utf8'))
 const target = process.env.EDITION_URL || 'https://chongqianli7.github.io/edition-signal/'
 const browser = await chromium.launch({channel:process.env.PLAYWRIGHT_CHROME_CHANNEL || undefined})
 try {
   for (const width of [1440,390,320]) {
     const page = await browser.newPage({viewport:{width,height:900},isMobile:width<450,hasTouch:width<450})
-    await page.goto(target + '#edition=field-notes-live')
+    await page.goto(target + '#edition=field-notes-v2')
     await page.getByText('PUBLISHED SHORTLIST',{exact:true}).waitFor({timeout:70000})
     assert.equal(await page.locator('.picks li').count(),2)
     assert.equal(await page.locator('.chart').count(),4)
@@ -21,7 +22,8 @@ try {
     const download = page.waitForEvent('download')
     await page.getByRole('button',{name:'Download edition JSON'}).click()
     const result = JSON.parse(await readFile(await (await download).path(),'utf8'))
-    assert.equal(result.key,'field-notes-live')
+    assert.equal(result.key,'field-notes-v2')
+    assert.equal(result.contract.toLowerCase(),deployment.address.toLowerCase())
     assert.equal(result.state,'PUBLISHED')
     await page.getByRole('button',{name:'Create test wallet'}).click()
     const first = await page.locator('#identity .address').innerText()

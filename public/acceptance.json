@@ -1,0 +1,434 @@
+{
+  "address": "0xaA18F59e6734966Cb2F1494fe2BEc791ced53Fa1",
+  "source": {
+    "address": "0x86CAC55be471ce989a0852a729617306C6D2829d",
+    "key": "field-notes-live",
+    "days": [
+      "20261001",
+      "20261002",
+      "20261003",
+      "20261004",
+      "20261005",
+      "20261006",
+      "20261007",
+      "20261008",
+      "20261009",
+      "20261010",
+      "20261011",
+      "20261012",
+      "20261013",
+      "20261014"
+    ],
+    "slots": 2,
+    "slate": [
+      [
+        "Ada_Lovelace",
+        "Science"
+      ],
+      [
+        "Mars",
+        "Science"
+      ],
+      [
+        "Aurora",
+        "Places"
+      ],
+      [
+        "Impressionism",
+        "Culture"
+      ],
+      [
+        "Edition_Signal_No_Such_Article_7248",
+        "Technology"
+      ]
+    ]
+  },
+  "finalState": {
+    "owner": "0xd287f3d4e648a8307647c75b02bc8c19a75a4136",
+    "state": "PUBLISHED",
+    "days": [
+      "20261001",
+      "20261002",
+      "20261003",
+      "20261004",
+      "20261005",
+      "20261006",
+      "20261007",
+      "20261008",
+      "20261009",
+      "20261010",
+      "20261011",
+      "20261012",
+      "20261013",
+      "20261014"
+    ],
+    "slots": 2,
+    "rows": [
+      {
+        "title": "Ada_Lovelace",
+        "desk": "Science",
+        "status": "MEASURED",
+        "daily": [
+          4029,
+          3951,
+          2904,
+          2991,
+          4818,
+          5010,
+          4499,
+          5481,
+          5171,
+          4309,
+          4028,
+          5046,
+          7354,
+          4888
+        ],
+        "observer": "0xf73bb324cb201148e07ddd99de13818853614bb5",
+        "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Ada_Lovelace/daily/20261001/20261014",
+        "baseline": 28202,
+        "recent": 36277,
+        "lift_bps": 2863,
+        "decision": "SELECTED"
+      },
+      {
+        "title": "Mars",
+        "desk": "Science",
+        "status": "MEASURED",
+        "daily": [
+          2680,
+          3109,
+          2596,
+          2810,
+          3017,
+          3405,
+          3246,
+          3285,
+          2875,
+          2752,
+          2797,
+          2944,
+          3203,
+          3069
+        ],
+        "observer": "0x8b5ce0209ad905bd7939cddb75c28f30adb26847",
+        "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Mars/daily/20261001/20261014",
+        "baseline": 20863,
+        "recent": 20925,
+        "lift_bps": 29,
+        "decision": "DESK_LIMIT"
+      },
+      {
+        "title": "Aurora",
+        "desk": "Places",
+        "status": "MEASURED",
+        "daily": [
+          1892,
+          1998,
+          1722,
+          1969,
+          2028,
+          1985,
+          2170,
+          2356,
+          2209,
+          2716,
+          2947,
+          2424,
+          2172,
+          2128
+        ],
+        "observer": "0xacacebc6ac4979452e183629be5b7156b60cf5f0",
+        "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Aurora/daily/20261001/20261014",
+        "baseline": 13764,
+        "recent": 16952,
+        "lift_bps": 2316,
+        "decision": "SLOT_LIMIT"
+      },
+      {
+        "title": "Impressionism",
+        "desk": "Culture",
+        "status": "MEASURED",
+        "daily": [
+          1211,
+          1268,
+          1106,
+          1148,
+          1268,
+          1407,
+          1980,
+          2194,
+          2085,
+          1682,
+          1312,
+          1552,
+          1759,
+          1596
+        ],
+        "observer": "0xa927d9cb2e680443367b4de62b6d332c911d6b3f",
+        "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Impressionism/daily/20261001/20261014",
+        "baseline": 9388,
+        "recent": 12180,
+        "lift_bps": 2974,
+        "decision": "SELECTED"
+      },
+      {
+        "title": "Edition_Signal_No_Such_Article_7248",
+        "desk": "Technology",
+        "status": "NO_SERIES",
+        "daily": [],
+        "observer": "0x72505220da307da688199e26b76568726f73e655",
+        "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Edition_Signal_No_Such_Article_7248/daily/20261001/20261014",
+        "decision": "NO_SERIES"
+      }
+    ],
+    "order": [
+      3,
+      0
+    ]
+  },
+  "rejections": {
+    "unauthorized_publish": {
+      "owner": "0xd287f3d4e648a8307647c75b02bc8c19a75a4136",
+      "state": "FROZEN",
+      "days": [
+        "20261001",
+        "20261002",
+        "20261003",
+        "20261004",
+        "20261005",
+        "20261006",
+        "20261007",
+        "20261008",
+        "20261009",
+        "20261010",
+        "20261011",
+        "20261012",
+        "20261013",
+        "20261014"
+      ],
+      "slots": 2,
+      "rows": [
+        {
+          "title": "Ada_Lovelace",
+          "desk": "Science",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Mars",
+          "desk": "Science",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Aurora",
+          "desk": "Places",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Impressionism",
+          "desk": "Culture",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Edition_Signal_No_Such_Article_7248",
+          "desk": "Technology",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        }
+      ],
+      "order": []
+    },
+    "early_publish": {
+      "owner": "0xd287f3d4e648a8307647c75b02bc8c19a75a4136",
+      "state": "FROZEN",
+      "days": [
+        "20261001",
+        "20261002",
+        "20261003",
+        "20261004",
+        "20261005",
+        "20261006",
+        "20261007",
+        "20261008",
+        "20261009",
+        "20261010",
+        "20261011",
+        "20261012",
+        "20261013",
+        "20261014"
+      ],
+      "slots": 2,
+      "rows": [
+        {
+          "title": "Ada_Lovelace",
+          "desk": "Science",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Mars",
+          "desk": "Science",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Aurora",
+          "desk": "Places",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Impressionism",
+          "desk": "Culture",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        },
+        {
+          "title": "Edition_Signal_No_Such_Article_7248",
+          "desk": "Technology",
+          "status": "PENDING",
+          "daily": [],
+          "observer": ""
+        }
+      ],
+      "order": []
+    },
+    "duplicate_measure": {
+      "owner": "0xd287f3d4e648a8307647c75b02bc8c19a75a4136",
+      "state": "FROZEN",
+      "days": [
+        "20261001",
+        "20261002",
+        "20261003",
+        "20261004",
+        "20261005",
+        "20261006",
+        "20261007",
+        "20261008",
+        "20261009",
+        "20261010",
+        "20261011",
+        "20261012",
+        "20261013",
+        "20261014"
+      ],
+      "slots": 2,
+      "rows": [
+        {
+          "title": "Ada_Lovelace",
+          "desk": "Science",
+          "status": "MEASURED",
+          "daily": [
+            4029,
+            3951,
+            2904,
+            2991,
+            4818,
+            5010,
+            4499,
+            5481,
+            5171,
+            4309,
+            4028,
+            5046,
+            7354,
+            4888
+          ],
+          "observer": "0xf73bb324cb201148e07ddd99de13818853614bb5",
+          "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Ada_Lovelace/daily/20261001/20261014"
+        },
+        {
+          "title": "Mars",
+          "desk": "Science",
+          "status": "MEASURED",
+          "daily": [
+            2680,
+            3109,
+            2596,
+            2810,
+            3017,
+            3405,
+            3246,
+            3285,
+            2875,
+            2752,
+            2797,
+            2944,
+            3203,
+            3069
+          ],
+          "observer": "0x8b5ce0209ad905bd7939cddb75c28f30adb26847",
+          "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Mars/daily/20261001/20261014"
+        },
+        {
+          "title": "Aurora",
+          "desk": "Places",
+          "status": "MEASURED",
+          "daily": [
+            1892,
+            1998,
+            1722,
+            1969,
+            2028,
+            1985,
+            2170,
+            2356,
+            2209,
+            2716,
+            2947,
+            2424,
+            2172,
+            2128
+          ],
+          "observer": "0xacacebc6ac4979452e183629be5b7156b60cf5f0",
+          "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Aurora/daily/20261001/20261014"
+        },
+        {
+          "title": "Impressionism",
+          "desk": "Culture",
+          "status": "MEASURED",
+          "daily": [
+            1211,
+            1268,
+            1106,
+            1148,
+            1268,
+            1407,
+            1980,
+            2194,
+            2085,
+            1682,
+            1312,
+            1552,
+            1759,
+            1596
+          ],
+          "observer": "0xa927d9cb2e680443367b4de62b6d332c911d6b3f",
+          "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Impressionism/daily/20261001/20261014"
+        },
+        {
+          "title": "Edition_Signal_No_Such_Article_7248",
+          "desk": "Technology",
+          "status": "NO_SERIES",
+          "daily": [],
+          "observer": "0x72505220da307da688199e26b76568726f73e655",
+          "source": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Edition_Signal_No_Such_Article_7248/daily/20261001/20261014"
+        }
+      ],
+      "order": []
+    }
+  }
+}

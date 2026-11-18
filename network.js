@@ -26,6 +26,7 @@ export function outcome(receipt, hash) {
     : rawExecution === 'FINISHED_WITH_ERROR' ? 'ERROR'
     : rawExecution
   const reasonCandidates = [
+    vote?.result?.status === 'rollback' ? vote.result.payload : null,
     vote?.genvm_result?.stderr,
     vote?.genvm_result?.error,
     vote?.genvm_result?.message,
@@ -47,5 +48,6 @@ export function outcome(receipt, hash) {
     consensus: receipt.result_name ?? receipt.resultName,
     execution,
     reason,
+    ...(execution === 'ERROR' && vote?.result?.status ? {resultType:vote.result.status} : {}),
   }
 }
