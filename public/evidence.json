@@ -74,7 +74,7 @@
     "status": "FINALIZED",
     "consensus": "MAJORITY_AGREE",
     "execution": "ERROR",
-    "reason": null
+    "reason": "AttributeError: module 'genlayer.gl' has no attribute 'UserError'"
   },
   {
     "key": "field-notes-live",
@@ -107,7 +107,7 @@
     "status": "FINALIZED",
     "consensus": "MAJORITY_AGREE",
     "execution": "ERROR",
-    "reason": null
+    "reason": "AttributeError: module 'genlayer.gl' has no attribute 'UserError'"
   },
   {
     "key": "field-notes",
@@ -118,7 +118,7 @@
     "status": "FINALIZED",
     "consensus": "MAJORITY_AGREE",
     "execution": "ERROR",
-    "reason": null
+    "reason": "AttributeError: module 'genlayer.gl' has no attribute 'UserError'"
   },
   {
     "key": "field-notes",
@@ -184,6 +184,6 @@
     "status": "FINALIZED",
     "consensus": "MAJORITY_AGREE",
     "execution": "ERROR",
-    "reason": null
+    "reason": "AttributeError: module 'genlayer.gl' has no attribute 'UserError'"
   }
 ]

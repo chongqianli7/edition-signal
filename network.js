@@ -35,8 +35,11 @@ export function outcome(receipt, hash) {
     vote?.error,
     ...Object.values(vote?.eq_outputs ?? {}).map(output => output?.payload?.readable ?? output?.readable),
   ]
-  const reason = execution === 'ERROR'
+  const rawReason = execution === 'ERROR'
     ? reasonCandidates.find(value => typeof value === 'string' && value.trim())?.trim() ?? null
+    : null
+  const reason = rawReason
+    ? rawReason.split(/\r?\n/).filter(Boolean).at(-1) ?? rawReason
     : null
   return {
     hash,
