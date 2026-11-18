@@ -30,3 +30,19 @@ jobs:
           path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
+  browser-smoke:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: google-chrome --version
+      - run: npm run build
+      - run: |
+          npm exec vite preview -- --host 127.0.0.1 --port 4173 &
+          curl --retry 10 --retry-connrefused --fail --silent http://127.0.0.1:4173/ -o /dev/null
+          PLAYWRIGHT_CHROME_CHANNEL=chrome EDITION_URL=http://127.0.0.1:4173/ npm run test:ui

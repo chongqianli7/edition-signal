@@ -6,7 +6,9 @@
     "test": "python3 -m unittest discover -s tests",
     "build": "vite build --base=./",
     "dev": "vite",
-    "demo": "node scripts/demo.mjs"
+    "demo": "node scripts/demo.mjs",
+    "verify": "node scripts/verify.mjs",
+    "test:ui": "node scripts/smoke.mjs"
   },
   "license": "MIT",
   "type": "module",

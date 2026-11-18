@@ -1,0 +1,189 @@
+[
+  {
+    "key": "field-notes-live",
+    "method": "freeze",
+    "index": null,
+    "hash": "0x881150a5a5de9f6d63c7579a98b1362b283bb043ffd8a81e16750d9dc3e1a001",
+    "actor": "0x952701e8464996949b4c44d8873e2193e7c6ba71",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "measure",
+    "index": 0,
+    "hash": "0xdeb1d77ea42be300b8d3b3e55c7acdcbc5e420118da81ae3be43c61abfba7f96",
+    "actor": "0x64718e6773990a32a5a50c828711e928e19ebc56",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "measure",
+    "index": 1,
+    "actor": "0x46d0796803613c7d1b0f92fa740dfe8d27346e3e",
+    "hash": "0x397093613352b5ff52a7f7780bbd0b11b85d31b1652573d9583b907cf6e3a340",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "measure",
+    "index": 2,
+    "actor": "0x6bf806cf7305e8fcf0a19ae91f38620f148217b7",
+    "hash": "0x1820c7013fbc7dda8d4b5f982bd46bafe46861454305d83428e619bc9c52f3fe",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "measure",
+    "index": 3,
+    "actor": "0x4674f20d861156bae4ef46684e4d74460c95eddf",
+    "hash": "0x61a06d6256d857e56ca53477a60d9abc2826d48cc7ae904342b42525f11b13f6",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "measure",
+    "index": 4,
+    "actor": "0xfa3fed4793f0f73c2a6e991c585a9f134d8d44ec",
+    "hash": "0x8c777d7515cf85a27aae19a17256154f75d407e914de0840ec0b9b68a8145191",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "unauthorized_publish",
+    "index": null,
+    "actor": "0xad98f0ddaff0722dccded1ec2fe3af49b4f8b281",
+    "hash": "0x9b03f950d93459a17262a90ae79b14232de53f47764dfdb9a554f4800cb2ce14",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "ERROR",
+    "reason": null
+  },
+  {
+    "key": "field-notes-live",
+    "method": "publish",
+    "index": null,
+    "hash": "0x2b1adcd221f8d056cd93f67f99c342ca26b11c4f1fd68794bb62b345c6d40445",
+    "actor": "0x952701e8464996949b4c44d8873e2193e7c6ba71",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "freeze",
+    "index": null,
+    "hash": "0xaa17b8c1e58ffadd471766011fc40c1bfa079dfc58fe0d5145fee6c226fea938",
+    "actor": "0xa37adf8fcaffefcdd54fec8d5f92456e0590f48a",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "unauthorized_publish",
+    "index": null,
+    "hash": "0x8fb4577814558b8e033203e3ef0179bd9963fdf18a939e5200ec5b2fce828e8c",
+    "actor": "0x7ec9e14d7c5ec804f33d95b132189fbcaf5d6bb8",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "ERROR",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "early_publish",
+    "index": null,
+    "hash": "0xcecfcce3fc8b2314efd52f5b499ea3cd924df34b63c198ba5dc05d65d3a0b58d",
+    "actor": "0xa37adf8fcaffefcdd54fec8d5f92456e0590f48a",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "ERROR",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "measure",
+    "index": 0,
+    "hash": "0x2ad99145827f6e6a72e14a732218ef1261cbd097c4cbad8e2d6712550f0295ab",
+    "actor": "0xa53e83188efc0714f4a99cbf79730393c2728616",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "measure",
+    "index": 1,
+    "hash": "0xb8251fdb84f79d68020fdfbcde9828abcd2b480f9de96808565fc9c166f73dc7",
+    "actor": "0x27159a3470f16a35c80267dc8258cca1d1af1684",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "measure",
+    "index": 2,
+    "hash": "0xdb1cca84a2d9d645868d778a292a2da21fd114b036b22d2df14f4ab8916c1a19",
+    "actor": "0x74c75184aaef4944d7386850b910b48c4567c6c6",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "measure",
+    "index": 3,
+    "hash": "0xb85ad07d13376a32aa3bd7b7bdaaa5f8fb72a6af7a91cecdef276a49c1c9e4a2",
+    "actor": "0xb7561db4085b7cd50f52a3f292d9cadd50d60534",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "measure",
+    "index": 4,
+    "hash": "0xfc68912ac56b3f8fd6768334642341d530a1453cfe1a6d58ef4a3f08979629ef",
+    "actor": "0x849ed0800d2d18341b93fa033fb739bf18fa1006",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "reason": null
+  },
+  {
+    "key": "field-notes",
+    "method": "duplicate_measure",
+    "index": 0,
+    "actor": "0xa40aaf125303968b2d146fad1a2c068d1657898b",
+    "hash": "0x94bbf7974537fa5ff585698142f3602c0e834395d0e8a0b2e082f53728d0da68",
+    "status": "FINALIZED",
+    "consensus": "MAJORITY_AGREE",
+    "execution": "ERROR",
+    "reason": null
+  }
+]

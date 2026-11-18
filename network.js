@@ -6,8 +6,18 @@ export const chain = studionet
 export const client = createClient({chain})
 export const explorer = 'https://explorer-studio.genlayer.com'
 export async function finalized(hash) {
-  await client.waitForTransactionReceipt({hash, status:TransactionStatus.FINALIZED, retries:180, interval:3000})
-  return client.getTransaction({hash})
+  const deadline = Date.now() + 300000
+  while (Date.now() < deadline) {
+    let receipt
+    try {
+      receipt = await client.getTransaction({hash})
+    } catch {
+      // A transient RPC or indexing failure does not invalidate the submitted hash.
+    }
+    if (receipt && outcome(receipt, hash).status === TransactionStatus.FINALIZED) return receipt
+    await new Promise(resolve => setTimeout(resolve, 4500))
+  }
+  throw new Error('Finalization timed out for ' + hash)
 }
 export function outcome(receipt, hash) {
   const vote = receipt.consensus_data?.leader_receipt?.[0]

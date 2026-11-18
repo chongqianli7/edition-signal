@@ -243,6 +243,12 @@ $('freeze').onsubmit = event => {
 $('wallet').onclick = () => { signer = createAccount(); wallets.push(signer); renderWallet(); renderBoard() }
 $('reset').onclick = () => { wallets.length = 0; signer = undefined; renderWallet(); renderBoard(); feedback('Temporary wallets removed.') }
 $('add').onclick = () => appendCandidate()
+document.querySelector('.jump').addEventListener('click', event => {
+  event.preventDefault()
+  const requested = new URLSearchParams(event.currentTarget.hash.slice(1)).get('edition')
+  navigate(requested)
+  $('desk').scrollIntoView()
+})
 window.addEventListener('hashchange', route)
 appendCandidate()
 appendCandidate()

@@ -29,3 +29,9 @@ npm run build
 ```
 
 `public/deployment.json` identifies the deployment. `scripts/deploy.mjs` writes a new deployment record when intentionally deploying. Preserve the previous record before redeployment. The demo script performs real Stable Studionet writes with fresh test wallets and requires an unused edition key.
+
+## Acceptance edition
+
+Open [Field Notes](https://chongqianli7.github.io/edition-signal/#edition=field-notes-live) for the published 2026-10-01 to 2026-10-14 slate. The browser curator and a separate browser observer signed live writes. Additional observer wallets resolved the other rows. The public [receipt ledger](public/evidence.json) also includes the preceding frozen rehearsal and failure cases. An intermittent RPC response interrupted that rehearsal after submission, so the curator's ephemeral signing session was unavailable for publication. Those transactions were recovered by hash and the browser edition completed on the same deployment.
+
+Run `npm run verify` for an independent read-only check of finalized receipts, Wikimedia counts and selection order. The unit tests cover source failures that cannot be reliably triggered on public infrastructure, including divergent validator responses and HTTP 503. Run `npx playwright install chromium` and `npm run test:ui` to verify the published edition, JSON export and responsive layout in Chrome.

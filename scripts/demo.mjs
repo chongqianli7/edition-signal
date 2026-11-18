@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import {readFileSync, writeFileSync} from 'node:fs'
+import {readFileSync} from 'node:fs'
 import {createAccount} from 'genlayer-js'
 import {client, finalized, outcome} from '../network.js'
 
@@ -23,11 +23,9 @@ async function send(functionName, args, account, expectation, label = functionNa
 }
 try {
   await send('freeze',['2026-10-01',2,JSON.stringify(slate)],curator,'SUCCESS')
-  await Promise.all([
-    send('publish',[],createAccount(),'ERROR','unauthorized_publish'),
-    send('publish',[],curator,'ERROR','early_publish'),
-    ...slate.map((_,i) => send('measure',[i],createAccount(),'SUCCESS')),
-  ])
+  await send('publish',[],createAccount(),'ERROR','unauthorized_publish')
+  await send('publish',[],curator,'ERROR','early_publish')
+  for (const [i] of slate.entries()) await send('measure',[i],createAccount(),'SUCCESS')
   const observed = await read()
   assert.equal(observed.rows[4].status,'NO_SERIES')
   assert(observed.rows.slice(0,4).every(row => row.daily.length === 14))
@@ -38,5 +36,5 @@ try {
   assert.equal(result.order.length,2)
   console.log(JSON.stringify({order:result.order.map(index=>result.rows[index].title), result}))
 } finally {
-  writeFileSync('public/evidence.json', JSON.stringify(entries, null, 2) + '\n')
+  console.log(JSON.stringify({receipts:entries}, null, 2))
 }
