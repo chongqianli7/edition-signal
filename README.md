@@ -28,7 +28,7 @@ npm run dev
 npm run build
 ```
 
-`public/deployment.json` identifies the deployment. `scripts/deploy.mjs` writes a new deployment record when intentionally deploying. Preserve the previous record before redeployment. The demo script performs real Stable Studionet writes with fresh test wallets and requires an unused edition key.
+`public/deployment.json` identifies the current deployment. `scripts/deploy.mjs` writes a new deployment record when intentionally deploying. Preserve the previous record before redeployment. The demo script performs real Stable Studionet writes with fresh test wallets and requires an unused edition key. The contract source uses `gl.vm.UserError` for explicit user reverts. The currently published address predates this source correction and must be redeployed before its rejection paths can be considered verified.
 
 ## Acceptance edition
 

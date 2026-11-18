@@ -16,7 +16,7 @@ class EditionSignal(gl.Contract):
 
     def _load(self, key: str) -> dict:
         if key not in self.editions:
-            raise gl.UserError("EDITION_NOT_FOUND")
+            raise gl.vm.UserError("EDITION_NOT_FOUND")
         return json.loads(self.editions[key])
 
     def _save(self, key: str, record: dict) -> None:
@@ -29,26 +29,26 @@ class EditionSignal(gl.Contract):
     @gl.public.write
     def freeze(self, key: str, start: str, slots: u32, slate: str) -> None:
         if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,39}", key) or key in self.editions:
-            raise gl.UserError("INVALID_OR_USED_KEY")
+            raise gl.vm.UserError("INVALID_OR_USED_KEY")
         if len(slate) > 1000 or not re.fullmatch(r"20[1-9][0-9]-[0-9]{2}-[0-9]{2}", start):
-            raise gl.UserError("INVALID_EDITION")
+            raise gl.vm.UserError("INVALID_EDITION")
         try:
             first = date.fromisoformat(start)
             entries = json.loads(slate)
         except (TypeError, ValueError):
-            raise gl.UserError("INVALID_EDITION")
+            raise gl.vm.UserError("INVALID_EDITION")
         if first < date(2015, 7, 1) or not isinstance(entries, list) or not 2 <= len(entries) <= 6 or not 1 <= int(slots) <= min(4, len(entries)):
-            raise gl.UserError("INVALID_EDITION")
+            raise gl.vm.UserError("INVALID_EDITION")
         rows = []
         seen = set()
         for entry in entries:
             if not isinstance(entry, list) or len(entry) != 2:
-                raise gl.UserError("INVALID_CANDIDATE")
+                raise gl.vm.UserError("INVALID_CANDIDATE")
             title, desk = entry
             if desk not in DESKS or not isinstance(title, str) or not re.fullmatch(r"[A-Z0-9][A-Za-z0-9_()-]{0,79}", title):
-                raise gl.UserError("INVALID_CANDIDATE")
+                raise gl.vm.UserError("INVALID_CANDIDATE")
             if title.lower() in seen:
-                raise gl.UserError("DUPLICATE_CANDIDATE")
+                raise gl.vm.UserError("DUPLICATE_CANDIDATE")
             seen.add(title.lower())
             rows.append({"title": title, "desk": desk, "status": "PENDING", "daily": [], "observer": ""})
         days = [(first + timedelta(days=i)).strftime("%Y%m%d") for i in range(14)]
@@ -59,12 +59,12 @@ class EditionSignal(gl.Contract):
     def measure(self, key: str, index: u32) -> None:
         edition = self._load(key)
         if edition["state"] != "FROZEN":
-            raise gl.UserError("EDITION_PUBLISHED")
+            raise gl.vm.UserError("EDITION_PUBLISHED")
         if index >= len(edition["rows"]):
-            raise gl.UserError("INVALID_INDEX")
+            raise gl.vm.UserError("INVALID_INDEX")
         row = edition["rows"][int(index)]
         if row["status"] == "MEASURED":
-            raise gl.UserError("ALREADY_MEASURED")
+            raise gl.vm.UserError("ALREADY_MEASURED")
         title = row["title"]
         days = edition["days"]
         source = ROOT + title + "/daily/" + days[0] + "/" + days[-1]
@@ -101,7 +101,7 @@ class EditionSignal(gl.Contract):
             row["status"] = "MEASURED"
             row["daily"] = json.loads(result)
         else:
-            raise gl.UserError(result)
+            raise gl.vm.UserError(result)
         row["observer"] = str(gl.message.sender_address).lower()
         row["source"] = source
         self._save(key, edition)
@@ -110,11 +110,11 @@ class EditionSignal(gl.Contract):
     def publish(self, key: str) -> None:
         edition = self._load(key)
         if edition["owner"] != str(gl.message.sender_address).lower():
-            raise gl.UserError("CURATOR_REQUIRED")
+            raise gl.vm.UserError("CURATOR_REQUIRED")
         if edition["state"] != "FROZEN":
-            raise gl.UserError("EDITION_PUBLISHED")
+            raise gl.vm.UserError("EDITION_PUBLISHED")
         if any(row["status"] == "PENDING" for row in edition["rows"]):
-            raise gl.UserError("OBSERVATIONS_PENDING")
+            raise gl.vm.UserError("OBSERVATIONS_PENDING")
         ranked = []
         for i, row in enumerate(edition["rows"]):
             daily = row["daily"]
@@ -141,6 +141,6 @@ class EditionSignal(gl.Contract):
                 edition["order"].append(i)
                 desks.add(row["desk"])
         if not edition["order"]:
-            raise gl.UserError("NO_ELIGIBLE_STORY")
+            raise gl.vm.UserError("NO_ELIGIBLE_STORY")
         edition["state"] = "PUBLISHED"
         self._save(key, edition)

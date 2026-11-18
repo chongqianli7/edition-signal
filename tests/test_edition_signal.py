@@ -21,7 +21,8 @@ api = types.ModuleType("genlayer")
 api.TreeMap = dict
 api.u32 = int
 api.gl = types.SimpleNamespace(
-    Contract=object, UserError=UserError,
+    Contract=object,
+    vm=types.SimpleNamespace(UserError=UserError),
     public=types.SimpleNamespace(view=lambda fn: fn, write=lambda fn: fn),
     message=types.SimpleNamespace(sender_address="curator"),
     eq_principle=types.SimpleNamespace(strict_eq=strict),
@@ -34,6 +35,10 @@ spec.loader.exec_module(code)
 
 
 class EditionTest(unittest.TestCase):
+    def test_user_error_uses_supported_vm_namespace(self):
+        self.assertFalse(hasattr(api.gl, "UserError"))
+        self.assertIs(api.gl.vm.UserError, UserError)
+
     def setUp(self):
         self.contract = code.EditionSignal()
         self.contract.editions = {}
